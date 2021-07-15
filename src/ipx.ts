@@ -137,7 +137,7 @@ export function createIPX (userOptions: Partial<IPXOptions>): IPX {
         })
 
       // Apply handlers
-      const handlerCtx: any = {}
+      const handlerCtx: any = { meta }
       for (const h of handlers) {
         sharp = applyHandler(handlerCtx, sharp, h.handler, h.args) || sharp
       }

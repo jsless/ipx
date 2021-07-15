@@ -1,5 +1,5 @@
 import type { Handler } from '../types'
-import { VArg } from './utils'
+import { clampDimensionsPreservingAspectRatio, VArg } from './utils'
 
 // --------- Context Modifers ---------
 
@@ -36,24 +36,37 @@ export const background: Handler = {
 
 // --------- Resize ---------
 
+export const enlarge: Handler = {
+  args: [],
+  apply: (context) => {
+    context.enlarge = true
+  }
+}
+
 export const width: Handler = {
   args: [VArg],
-  apply: (_context, pipe, width) => {
-    return pipe.resize(width, null)
+  apply: (context, pipe, width) => {
+    return pipe.resize(width, null, { withoutEnlargement: !context.enlarge })
   }
 }
 
 export const height: Handler = {
   args: [VArg],
-  apply: (_context, pipe, height) => {
-    return pipe.resize(null, height)
+  apply: (context, pipe, height) => {
+    return pipe.resize(null, height, { withoutEnlargement: !context.enlarge })
   }
 }
 
 export const resize: Handler = {
   args: [VArg, VArg, VArg],
   apply: (context, pipe, size) => {
-    const [width, height] = String(size).split('x').map(v => Number(v))
+    let [width, height] = String(size).split('x').map(v => Number(v))
+    // sharp's `withoutEnlargement` doesn't respect the requested aspect ratio, so we need to do it ourselves
+    if (!context.enlarge) {
+      const clamped = clampDimensionsPreservingAspectRatio(context.meta, { width, height })
+      width = clamped.width
+      height = clamped.height
+    }
     return pipe.resize(width, height, {
       fit: context.fit,
       background: context.background

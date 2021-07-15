@@ -52,25 +52,27 @@ Resize to `200x200px` using `embed` method and change format to `webp`:
 
 ### Modifiers
 
-| Property  | Docs                                                            | Example                                          | Comments                                                              |
-| --------- | :-------------------------------------------------------------- | :----------------------------------------------- | :-------------------------------------------------------------------- |
-| width     | \_                                                              | `http://localhost:3000/width_200/buffalo.png`    |
-| height    | \_                                                              | `http://localhost:3000/height_200/buffalo.png`   |
-| trim      | [Docs](https://sharp.pixelplumbing.com/api-resize#trim)         | `http://localhost:3000/trim_100/buffalo.png`     |
-| format    | [Docs](https://sharp.pixelplumbing.com/api-output#toformat)     | `http://localhost:3000/format_webp/buffalo.png`  | Supported format: `jpg`, `jpeg`, `png`, `webp`, `avif`, `gif`, `heif` |
-| quality   | \_                                                              | `http://localhost:3000/quality_50/buffalo.png`   | Accepted values: 0 to 100                                             |
-| rotate    | [Docs](https://sharp.pixelplumbing.com/api-operation#rotate)    | `http://localhost:3000/rotate_45/buffalo.png`    |
-| flip      | [Docs](https://sharp.pixelplumbing.com/api-operation#flip)      | `http://localhost:3000/flip/buffalo.png`         |
-| flop      | [Docs](https://sharp.pixelplumbing.com/api-operation#flop)      | `http://localhost:3000/flop/buffalo.png`         |
-| sharpen   | [Docs](https://sharp.pixelplumbing.com/api-operation#sharpen)   | `http://localhost:3000/sharpen_30/buffalo.png`   |
-| median    | [Docs](https://sharp.pixelplumbing.com/api-operation#median)    | `http://localhost:3000/median_10/buffalo.png`    |
-| gamma     | [Docs](https://sharp.pixelplumbing.com/api-operation#gamma)     | `http://localhost:3000/gamma_3/buffalo.png`      |
-| negate    | [Docs](https://sharp.pixelplumbing.com/api-operation#negate)    | `http://localhost:3000/negate/buffalo.png`       |
-| normalize | [Docs](https://sharp.pixelplumbing.com/api-operation#normalize) | `http://localhost:3000/normalize/buffalo.png`    |
-| threshold | [Docs](https://sharp.pixelplumbing.com/api-operation#threshold) | `http://localhost:3000/threshold_10/buffalo.png` |
-| tint      | [Docs](https://sharp.pixelplumbing.com/api-colour#tint)         | `http://localhost:3000/tint_1098123/buffalo.png` |
-| grayscale | [Docs](https://sharp.pixelplumbing.com/api-colour#grayscale)    | `http://localhost:3000/grayscale/buffalo.png`    |
-| animated  | -                                                               | `http://localhost:3000/animated/buffalo.gif`     | Experimental                                                          |
+| Property    | Docs                                                            | Example                                                 | Comments                                                                                                                                                          |
+| ----------- | :-------------------------------------------------------------- | :------------------------------------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| width / w   | \_                                                              | `http://localhost:3000/width_200/buffalo.png`           |
+| height / h  | \_                                                              | `http://localhost:3000/height_200/buffalo.png`          |
+| resize / s  | \_                                                              | `http://localhost:3000/s_200x200/buffalo.png`           |
+| trim        | [Docs](https://sharp.pixelplumbing.com/api-resize#trim)         | `http://localhost:3000/trim_100/buffalo.png`            |
+| format      | [Docs](https://sharp.pixelplumbing.com/api-output#toformat)     | `http://localhost:3000/format_webp/buffalo.png`         | Supported format: `jpg`, `jpeg`, `png`, `webp`, `avif`, `gif`, `heif`                                                                                             |
+| quality / q | \_                                                              | `http://localhost:3000/quality_50/buffalo.png`          | Accepted values: 0 to 100                                                                                                                                         |
+| rotate      | [Docs](https://sharp.pixelplumbing.com/api-operation#rotate)    | `http://localhost:3000/rotate_45/buffalo.png`           |
+| enlarge     | \_                                                              | `http://localhost:3000/enlarge,s_2000x2000/buffalo.png` | Allow the image to be upscaled. By default the returned image will never be larger than the source in any dimension, while preserving the requested aspect ratio. |
+| flip        | [Docs](https://sharp.pixelplumbing.com/api-operation#flip)      | `http://localhost:3000/flip/buffalo.png`                |
+| flop        | [Docs](https://sharp.pixelplumbing.com/api-operation#flop)      | `http://localhost:3000/flop/buffalo.png`                |
+| sharpen     | [Docs](https://sharp.pixelplumbing.com/api-operation#sharpen)   | `http://localhost:3000/sharpen_30/buffalo.png`          |
+| median      | [Docs](https://sharp.pixelplumbing.com/api-operation#median)    | `http://localhost:3000/median_10/buffalo.png`           |
+| gamma       | [Docs](https://sharp.pixelplumbing.com/api-operation#gamma)     | `http://localhost:3000/gamma_3/buffalo.png`             |
+| negate      | [Docs](https://sharp.pixelplumbing.com/api-operation#negate)    | `http://localhost:3000/negate/buffalo.png`              |
+| normalize   | [Docs](https://sharp.pixelplumbing.com/api-operation#normalize) | `http://localhost:3000/normalize/buffalo.png`           |
+| threshold   | [Docs](https://sharp.pixelplumbing.com/api-operation#threshold) | `http://localhost:3000/threshold_10/buffalo.png`        |
+| tint        | [Docs](https://sharp.pixelplumbing.com/api-colour#tint)         | `http://localhost:3000/tint_1098123/buffalo.png`        |
+| grayscale   | [Docs](https://sharp.pixelplumbing.com/api-colour#grayscale)    | `http://localhost:3000/grayscale/buffalo.png`           |
+| animated    | -                                                               | `http://localhost:3000/animated/buffalo.gif`            | Experimental                                                                                                                                                      |
 
 ### Config
 

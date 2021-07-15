@@ -19,3 +19,18 @@ export function applyHandler (ctx, pipe, handler: Handler, argsStr: string) {
   const args = handler.args ? parseArgs(argsStr, handler.args) : []
   return handler.apply(ctx, pipe, ...args)
 }
+
+export function clampDimensionsPreservingAspectRatio (sourceDimensions, desiredDimensions) {
+  const desiredAspectRatio = desiredDimensions.width / desiredDimensions.height
+  let { width, height } = desiredDimensions
+  if (width > sourceDimensions.width) {
+    width = sourceDimensions.width
+    height = Math.round(sourceDimensions.width / desiredAspectRatio)
+  }
+  if (height > sourceDimensions.height) {
+    height = sourceDimensions.height
+    width = Math.round(sourceDimensions.height * desiredAspectRatio)
+  }
+
+  return { width, height }
+}
